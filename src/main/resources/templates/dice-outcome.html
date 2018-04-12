@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Dice Outcome</title>
+</head>
+<body>
+
+    <h1>Dice Outcome</h1>
+    <h3>You guessed: <span th:text="${guess}"></span></h3>
+    <h3>The correct guess is: <span th:text="${number}"></span></h3>
+    <h3 th:if="${guess == number}">You guessed correctly!</h3>
+    <h3 th:if="${guess != number}">You guessed WRONG :(</h3>
+
+</body>
+</html>

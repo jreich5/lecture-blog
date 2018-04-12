@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Controller
 public class HomeController {
@@ -48,5 +49,23 @@ public class HomeController {
         return "home";
 
     }
+
+    @GetMapping("/roll-dice")
+    public String showDiceForm() {
+        return "roll-dice-form";
+    }
+
+    @GetMapping("/roll-dice/{num}")
+    public String showResult(@PathVariable int num, Model model) {
+        Random rand = new Random();
+        int n = rand.nextInt(6) + 1;
+        model.addAttribute("number", n);
+        model.addAttribute("guess", num);
+
+        return "dice-outcome";
+    }
+
+
+
 
 }
