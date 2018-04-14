@@ -1,6 +1,7 @@
-package com.codeup.lectureblog;
+package com.codeup.lectureblog.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.codeup.lectureblog.services.StringTransformSvc;
+import com.codeup.lectureblog.services.PigLatinSvc;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

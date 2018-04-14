@@ -1,4 +1,4 @@
-package com.codeup.lectureblog;
+package com.codeup.lectureblog.models;
 
 public class Post {
 

@@ -1,4 +1,4 @@
-package com.codeup.lectureblog;
+package com.codeup.lectureblog.services;
 
 import org.springframework.stereotype.Service;
 

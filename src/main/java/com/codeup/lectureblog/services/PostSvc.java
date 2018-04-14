@@ -1,6 +1,7 @@
-package com.codeup.lectureblog;
+package com.codeup.lectureblog.services;
 
 
+import com.codeup.lectureblog.models.Post;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
