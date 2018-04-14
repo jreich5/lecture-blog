@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('Pig Latin Translator')"></head>
+<body>
+
+<div th:replace="partials/navbar :: navbar"></div>
+
+<main class="container">
+
+    <h1>Pig Latin Translator</h1>
+    <form action="/pig" method="POST">
+        <label for="translate">Enter phrase to translate</label>
+        <input id="translate" type="text" name="phrase" placeholder="Enter phrase" />
+    </form>
+
+</main>
+
+<div th:replace="partials/footer :: footer"></div>
+
+</body>
+</html>

@@ -1,10 +1,9 @@
 package com.codeup.lectureblog;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +11,15 @@ import java.util.Random;
 
 @Controller
 public class HomeController {
+
+    public PigLatinSvc pigLatinSvc;
+    public StringTransformSvc stringTransformSvc;
+
+    public HomeController(PigLatinSvc pigLatinSvc, StringTransformSvc stringTransformSvc) {
+        this.pigLatinSvc = pigLatinSvc;
+        this.stringTransformSvc = stringTransformSvc;
+    }
+
     @GetMapping("/")
     @ResponseBody
     public String returnLandingMessage() {
@@ -31,7 +39,6 @@ public class HomeController {
         return "home";
 
     }
-
 
     // if and each tags
     @GetMapping("/all/{willSayHi}")
@@ -65,7 +72,15 @@ public class HomeController {
         return "dice-outcome";
     }
 
+    @GetMapping("/pig")
+    public String getPigTranslateForm() {
+        return "pig";
+    }
 
-
+    @PostMapping("/pig")
+    @ResponseBody
+    public String getTranslation(@RequestParam("phrase") String phrase){
+        return pigLatinSvc.translate(phrase);
+    }
 
 }
