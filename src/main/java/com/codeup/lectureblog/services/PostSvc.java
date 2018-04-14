@@ -25,11 +25,18 @@ public class PostSvc {
         return this.posts;
     }
 
-    private void populateList() {
-        posts.add(new Post("Test Post 1", "This is a post about number 1"));
-        posts.add(new Post("Test Post 2", "This is a post about number 2"));
-        posts.add(new Post("Test Post 3", "This is a post about number 3"));
-        posts.add(new Post("Test Post 4", "This is a post about number 4"));
+    public void save(Post post) {
+        post.setId(posts.size());
+        this.posts.add(post);
     }
+
+    private void populateList() {
+        posts.add(new Post(1,  "Test Post 1", "This is a post about number 1"));
+        posts.add(new Post(2, "Test Post 2", "This is a post about number 2"));
+        posts.add(new Post(3, "Test Post 3", "This is a post about number 3"));
+        posts.add(new Post(4, "Test Post 4", "This is a post about number 4"));
+    }
+
+
 
 }

@@ -1,13 +1,11 @@
 package com.codeup.lectureblog.controllers;
 
 
+import com.codeup.lectureblog.models.Post;
 import com.codeup.lectureblog.services.PostSvc;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PostController {
@@ -31,16 +29,27 @@ public class PostController {
     }
 
     @GetMapping("/posts/create")
-    @ResponseBody
-    public String create() {
-        return "Here is the form to create posts!";
+    public String create(Model model) {
+        model.addAttribute("post", new Post());
+        return "posts/create";
     }
 
     @PostMapping("/posts/create")
-    @ResponseBody
-    public String insert() {
-        return "Post inserted!";
+    public String insert(@ModelAttribute Post post) {
+        postSvc.save(post);
+        return "redirect:/posts";
     }
 
+    @GetMapping("/posts/{id}/edit")
+    public String edit(@PathVariable long id, Model model) {
+        model.addAttribute("post", postSvc.find(id));
+        return "posts/edit";
+    }
+
+    @PostMapping("/posts/{id}/edit")
+    public String update(@ModelAttribute Post post) {
+        // update post
+        return "redirect:/posts";
+    }
 
 }
