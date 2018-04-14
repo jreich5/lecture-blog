@@ -14,21 +14,21 @@ import java.util.List;
 @Controller
 public class PostController {
 
+    private PostSvc postSvc;
+
+    public PostController(PostSvc postSvc) {
+        this.postSvc = postSvc;
+    }
+
     @GetMapping("/posts")
     public String index(Model model) {
-        List<Post> posts = new ArrayList<>();
-        posts.add(new Post("A Post 1", "Some amount of post info...1"));
-        posts.add(new Post("A Post 2", "Some amount of post info...2"));
-        posts.add(new Post("A Post 3", "Some amount of post info...3"));
-        posts.add(new Post("A Post 4", "Some amount of post info...4"));
-        model.addAttribute("posts", posts);
+        model.addAttribute("posts", postSvc.findAll());
         return "posts/index";
     }
 
     @GetMapping("/posts/{id}")
     public String show(@PathVariable long id, Model model) {
-        Post post = new Post("A Post", "Here is a Post");
-        model.addAttribute("post", post);
+        model.addAttribute("post", postSvc.find(id));
         return "posts/show";
     }
 
