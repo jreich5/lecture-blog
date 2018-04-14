@@ -21,11 +21,6 @@ public class HomeController {
         this.stringTransformSvc = stringTransformSvc;
     }
 
-    @GetMapping("/")
-    @ResponseBody
-    public String returnLandingMessage() {
-        return "This is the landing page!";
-    }
 
     // returning a view
     @GetMapping("/home")
