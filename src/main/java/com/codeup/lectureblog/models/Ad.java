@@ -1,17 +1,36 @@
 package com.codeup.lectureblog.models;
 
+import javax.persistence.*;
 
+@Entity
+@Table(name="ads")
 public class Ad {
 
+    @Id
+    @GeneratedValue
+    private long id;
+
+    @Column(nullable = false, length = 100)
     private String title;
+
+    @Column(nullable = false)
     private String description;
 
     public Ad() {
     }
 
-    public Ad(String title, String description) {
+    public Ad(long id, String title, String description) {
+        this.id = id;
         this.title = title;
         this.description = description;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -29,5 +48,4 @@ public class Ad {
     public void setDescription(String description) {
         this.description = description;
     }
-
 }
