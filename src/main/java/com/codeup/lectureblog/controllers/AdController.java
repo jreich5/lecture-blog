@@ -1,6 +1,7 @@
 package com.codeup.lectureblog.controllers;
 
 import com.codeup.lectureblog.models.Ad;
+import com.codeup.lectureblog.repositories.AdRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,22 @@ public class AdController {
 //        // save the ad...
 //        return "Ad saved!";
 //    }
+
+
+    // JPA test
+
+    private final AdRepository adDao;
+
+    public AdController(AdRepository adDao) {
+        this.adDao = adDao;
+    }
+
+    @GetMapping("/ads")
+    public String index(Model model) {
+        model.addAttribute("ads", adDao.findAll());
+        return "ads/index";
+    }
+
 
     // ======================= version WITH form model binding
 
