@@ -2,6 +2,7 @@ package com.codeup.lectureblog.controllers;
 
 
 import com.codeup.lectureblog.models.Post;
+import com.codeup.lectureblog.repositories.PostRepository;
 import com.codeup.lectureblog.services.PostSvc;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +25,7 @@ public class PostController {
 
     @GetMapping("/posts/{id}")
     public String show(@PathVariable long id, Model model) {
-        model.addAttribute("post", postSvc.find(id));
+        model.addAttribute("post", postSvc.findOne(id));
         return "posts/show";
     }
 
@@ -42,13 +43,19 @@ public class PostController {
 
     @GetMapping("/posts/{id}/edit")
     public String edit(@PathVariable long id, Model model) {
-        model.addAttribute("post", postSvc.find(id));
+        model.addAttribute("post", postSvc.findOne(id));
         return "posts/edit";
     }
 
     @PostMapping("/posts/{id}/edit")
     public String update(@ModelAttribute Post post) {
-        // update post
+        postSvc.save(post);
+        return "redirect:/posts";
+    }
+
+    @PostMapping("/posts/{id}/delete")
+    public String delete(@PathVariable long id) {
+        postSvc.delete(id);
         return "redirect:/posts";
     }
 

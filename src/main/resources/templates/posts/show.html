@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Post Show</title>
-</head>
+<head th:replace="partials/header :: header('Show Post')"></head>
 <body>
 
-    <h1>Post</h1>
+    <div th:replace="partials/navbar :: navbar"></div>
 
-    <h3><span th:text="${post.title}"></span></h3>
-    <p><span th:text="${post.body}"></span></p>
+    <main class="container">
+
+        <h1>Post</h1>
+
+        <h3><span th:text="${post.title}"></span></h3>
+        <p><span th:text="${post.body}"></span></p>
+
+        <form th:action="@{'/posts/' + ${post.id} + '/edit'}" th:method="GET">
+            <button class="btn btn-warning">Edit</button>
+        </form>
+
+        <form th:action="@{'/posts/' + ${post.id} + '/delete'}" th:method="POST">
+            <button class="btn btn-danger">Delete</button>
+        </form>
+
+    </main>
+
+    <div th:replace="partials/footer :: footer"></div>
 
 </body>
 </html>
