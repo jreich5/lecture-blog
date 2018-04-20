@@ -16,18 +16,33 @@ public class Ad {
     @Column(nullable = false)
     private String description;
 
+    @OneToOne
+    @JoinColumn(name="details_id")
+    private AdDetails adDetails;
+
     public Ad() {
     }
 
-    public Ad(String title, String description) {
+
+    public Ad(String title, String description, AdDetails adDetails) {
         this.title = title;
         this.description = description;
+        this.adDetails = adDetails;
     }
 
-    public Ad(long id, String title, String description) {
+    public Ad(long id, String title, String description, AdDetails adDetails) {
         this.id = id;
         this.title = title;
         this.description = description;
+        this.adDetails = adDetails;
+    }
+
+    public AdDetails getAdDetails() {
+        return adDetails;
+    }
+
+    public void setAdDetails(AdDetails adDetails) {
+        this.adDetails = adDetails;
     }
 
     public long getId() {

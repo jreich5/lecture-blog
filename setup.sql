@@ -1,21 +1,48 @@
-
-# Initial setup to create application database and user
-CREATE DATABASE IF NOT EXISTS spring_lec_db;
-CREATE USER spring_lec_user@localhost IDENTIFIED BY 'getmein';
-GRANT ALL ON spring_lec_db.* TO spring_lec_user@localhost;
-
+DROP DATABASE spring_lec_db;
 
 # Test if Hibernate creates a table based on entity mapping
 USE spring_lec_db;
 SHOW TABLES;
 DESCRIBE ads;
+DESCRIBE details;
+DESCRIBE images;
+DESCRIBE categories;
 
+SELECT * FROM ads;
+SELECT * FROM details;
 
+# Populate ad_details
+INSERT INTO details (brand, avg_market_value)
+VALUE ('Sears', 23.00),
+  ('Apple', 999.00),
+  ('Jet Brains', 129.00),
+  ('Burma-Shave', 7.00);
 
 # Populate ads table
-INSERT INTO ads (title, description)
+INSERT INTO ads (title, description, details_id)
 VALUES
-  ("Test Ad 1", "An ad about the number 1"),
-  ("Test Ad 2", "An ad about the number 2"),
-  ("Test Ad 3", "An ad about the number 3"),
-  ("Test Ad 4", "An ad about the number 4");
+  ("Blender", "This is an ad for a blender", 1),
+  ("iPhone X", "This phone costs is too much money.", 2),
+  ("WebStorm", "An IDE for Javascript.", 3),
+  ("Razor", "A razor for every cowboy.", 4);
+
+
+
+
+# Populate ad_images
+INSERT INTO images (path)
+  VALUE ('/img/blender.jpeg'),
+  ('/img/iphone.jpg'),
+  ('/img/iphone2.png'),
+  ('/img/razor.jpg'),
+  ('/img/webstorm.jpg');
+
+
+# Populate ad_categories
+INSERT INTO categories (name)
+VALUE ('funny'),
+  ('expensive'),
+  ('technology'),
+  ('grooming'),
+  ('trendy'),
+  ('small');
