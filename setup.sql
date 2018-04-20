@@ -26,16 +26,13 @@ VALUES
   ("WebStorm", "An IDE for Javascript.", 3),
   ("Razor", "A razor for every cowboy.", 4);
 
-
-
-
 # Populate ad_images
-INSERT INTO images (path)
-  VALUE ('/img/blender.jpeg'),
-  ('/img/iphone.jpg'),
-  ('/img/iphone2.png'),
-  ('/img/razor.jpg'),
-  ('/img/webstorm.jpg');
+INSERT INTO images (path, ad_id)
+  VALUE ('/img/blender.jpeg', 1),
+  ('/img/iphone.jpg', 2),
+  ('/img/iphone2.png', 2),
+  ('/img/webstorm.jpg', 3),
+  ('/img/razor.jpg', 4);
 
 
 # Populate ad_categories
