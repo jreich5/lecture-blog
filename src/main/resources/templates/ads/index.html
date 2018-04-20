@@ -16,6 +16,9 @@
         </div>
         <p>Description = <span th:text="${ad.description}"></span></p>
         <p>Brand = <span th:text="${ad.adDetails.brand}"></span></p>
+        <span th:each="category : ${ad.categories}">
+            <span th:text="${category.name}"></span>
+        </span>
     </div>
 
 </main>

@@ -7,9 +7,13 @@ DESCRIBE ads;
 DESCRIBE details;
 DESCRIBE images;
 DESCRIBE categories;
+DESCRIBE ads_categories;
+DESCRIBE categories_ads;
 
 SELECT * FROM ads;
 SELECT * FROM details;
+SELECT * FROM ads_categories;
+SELECT * FROM categories_ads;
 
 # Populate ad_details
 INSERT INTO details (brand, avg_market_value)
@@ -35,7 +39,7 @@ INSERT INTO images (path, ad_id)
   ('/img/razor.jpg', 4);
 
 
-# Populate ad_categories
+# Populate categories
 INSERT INTO categories (name)
 VALUE ('funny'),
   ('expensive'),
@@ -43,3 +47,16 @@ VALUE ('funny'),
   ('grooming'),
   ('trendy'),
   ('small');
+
+
+# Populate ads_categories
+INSERT INTO ads_categories (ad_id, category_id)
+VALUES (1, 1),
+  (1, 3),
+  (2, 2),
+  (2, 5),
+  (3, 3),
+  (4, 3),
+  (4, 4),
+  (4, 5);
+

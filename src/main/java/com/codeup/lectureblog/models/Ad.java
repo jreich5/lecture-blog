@@ -3,6 +3,8 @@ package com.codeup.lectureblog.models;
 import javax.persistence.*;
 import java.util.List;
 
+import static javax.persistence.CascadeType.ALL;
+
 @Entity
 @Table(name="ads")
 public class Ad {
@@ -21,17 +23,23 @@ public class Ad {
     @JoinColumn(name = "details_id")
     private AdDetails adDetails;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ad")
+    @OneToMany(cascade = ALL, mappedBy = "ad")
     private List<AdImage> images;
 
-    public Ad() {
-    }
+    @ManyToMany(cascade = ALL)
+    @JoinTable(name="ads_categories",
+            joinColumns={@JoinColumn(name="ad_id")},
+            inverseJoinColumns={@JoinColumn(name="category_id")})
+    private List<AdCategory> categories;
 
-    public Ad(String title, String description, AdDetails adDetails, List<AdImage> images) {
+    public Ad() {}
+
+    public Ad(String title, String description, AdDetails adDetails, List<AdImage> images, List<AdCategory> categories) {
         this.title = title;
         this.description = description;
         this.adDetails = adDetails;
         this.images = images;
+        this.categories = categories;
     }
 
     public long getId() {
@@ -72,5 +80,13 @@ public class Ad {
 
     public void setImages(List<AdImage> images) {
         this.images = images;
+    }
+
+    public List<AdCategory> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<AdCategory> categories) {
+        this.categories = categories;
     }
 }
