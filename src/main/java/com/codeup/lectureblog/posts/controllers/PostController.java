@@ -3,6 +3,7 @@ package com.codeup.lectureblog.posts.controllers;
 
 import com.codeup.lectureblog.posts.models.Post;
 import com.codeup.lectureblog.posts.services.PostSvc;
+import com.codeup.lectureblog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,10 +11,12 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class PostController {
 
+    private UserRepository userDao;
     private PostSvc postSvc;
 
-    public PostController(PostSvc postSvc) {
+    public PostController(PostSvc postSvc, UserRepository userDao) {
         this.postSvc = postSvc;
+        this.userDao = userDao;
     }
 
     @GetMapping("/posts")
@@ -36,6 +39,7 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String insert(@ModelAttribute Post post) {
+        post.setUser(userDao.findOne(1L));
         postSvc.save(post);
         return "redirect:/posts";
     }

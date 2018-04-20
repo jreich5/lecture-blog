@@ -12,6 +12,8 @@
         <h3><span th:text="${post.title}"></span></h3>
         <p><span th:text="${post.body}"></span></p>
 
+        <p>Email <span th:text="${post.user.email}"></span></p>
+
         <form th:action="@{'/posts/' + ${post.id} + '/edit'}" th:method="GET">
             <button class="btn btn-warning">Edit</button>
         </form>

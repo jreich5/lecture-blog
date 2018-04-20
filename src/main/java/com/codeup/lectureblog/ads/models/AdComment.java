@@ -16,7 +16,7 @@ public class AdComment {
     // many Comments belong to one User
     @ManyToOne
     @JoinColumn(name="user_id")
-    private User user;
+    private AdUser user;
 
     // many Comments belong to one Ad
     @ManyToOne
@@ -26,7 +26,7 @@ public class AdComment {
     public AdComment() {
     }
 
-    public AdComment(String body, User user, Ad ad) {
+    public AdComment(String body, AdUser user, Ad ad) {
         this.body = body;
         this.user = user;
         this.ad = ad;
@@ -48,11 +48,11 @@ public class AdComment {
         this.body = body;
     }
 
-    public User getUser() {
+    public AdUser getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(AdUser user) {
         this.user = user;
     }
 

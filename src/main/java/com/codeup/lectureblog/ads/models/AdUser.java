@@ -8,7 +8,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class User {
+@Table(name="ad_users")
+public class AdUser {
 
     @Id
     @GeneratedValue
@@ -31,7 +32,7 @@ public class User {
     @OneToMany(mappedBy="user")
     private List<AdComment> comments;
 
-    public User() {
+    public AdUser() {
     }
 
     public long getId() {

@@ -42,11 +42,11 @@ public class Ad {
     // many ads belong to one User
     @ManyToOne
     @JoinColumn(name="user_id")
-    private User user;
+    private AdUser user;
 
     public Ad() {}
 
-    public Ad(String title, String description, AdDetails adDetails, List<AdImage> images, List<AdCategory> categories, List<AdComment> comments, User user) {
+    public Ad(String title, String description, AdDetails adDetails, List<AdImage> images, List<AdCategory> categories, List<AdComment> comments, AdUser user) {
         this.title = title;
         this.description = description;
         this.adDetails = adDetails;
@@ -112,11 +112,11 @@ public class Ad {
         this.comments = comments;
     }
 
-    public User getUser() {
+    public AdUser getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(AdUser user) {
         this.user = user;
     }
 }
