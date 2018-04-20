@@ -14,6 +14,7 @@ public class AdImage {
     @Column(nullable=false)
     private String path;
 
+    // many Images belong to one Ad
     @ManyToOne
     @JoinColumn(name="ad_id")
     private Ad ad;

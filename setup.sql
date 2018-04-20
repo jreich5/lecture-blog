@@ -1,4 +1,4 @@
-DROP DATABASE spring_lec_db;
+DROP DATABASE IF EXISTS spring_lec_db;
 
 # Test if Hibernate creates a table based on entity mapping
 USE spring_lec_db;
@@ -15,7 +15,7 @@ SELECT * FROM details;
 SELECT * FROM ads_categories;
 SELECT * FROM categories_ads;
 
-# Populate ad_details
+# Populate details
 INSERT INTO details (brand, avg_market_value)
 VALUE ('Sears', 23.00),
   ('Apple', 999.00),
@@ -59,4 +59,7 @@ VALUES (1, 1),
   (4, 3),
   (4, 4),
   (4, 5);
+
+
+
 

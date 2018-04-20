@@ -14,10 +14,16 @@ public class AdCategory {
     @Column(nullable=false)
     private String name;
 
+    // many Categories belong to many Ads
     @ManyToMany(mappedBy="categories")
     private List<Ad> ads;
 
     public AdCategory() {}
+
+    public AdCategory(String name, List<Ad> ads) {
+        this.name = name;
+        this.ads = ads;
+    }
 
     public long getId() {
         return id;

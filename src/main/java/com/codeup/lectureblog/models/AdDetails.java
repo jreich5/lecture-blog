@@ -15,6 +15,9 @@ public class AdDetails {
     @Column(name="avg_market_value")
     private double avgMarketValue;
 
+    @OneToOne
+    private Ad ad;
+
     public AdDetails() {
     }
 
