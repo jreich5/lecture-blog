@@ -1,4 +1,4 @@
-package com.codeup.lectureblog.models;
+package com.codeup.lectureblog.ads.models;
 
 
 import javax.persistence.*;

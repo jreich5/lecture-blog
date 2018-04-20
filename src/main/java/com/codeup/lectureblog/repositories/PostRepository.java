@@ -1,7 +1,7 @@
 package com.codeup.lectureblog.repositories;
 
 
-import com.codeup.lectureblog.models.Post;
+import com.codeup.lectureblog.posts.models.Post;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

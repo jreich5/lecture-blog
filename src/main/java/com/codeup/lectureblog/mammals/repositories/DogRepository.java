@@ -1,6 +1,6 @@
-package com.codeup.lectureblog.repositories;
+package com.codeup.lectureblog.mammals.repositories;
 
-import com.codeup.lectureblog.models.Dog;
+import com.codeup.lectureblog.mammals.models.Dog;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;

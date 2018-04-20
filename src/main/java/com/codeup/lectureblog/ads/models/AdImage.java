@@ -1,5 +1,7 @@
-package com.codeup.lectureblog.models;
+package com.codeup.lectureblog.ads.models;
 
+
+import com.codeup.lectureblog.ads.models.Ad;
 
 import javax.persistence.*;
 

@@ -1,7 +1,7 @@
-package com.codeup.lectureblog.controllers;
+package com.codeup.lectureblog.ads.controllers;
 
-import com.codeup.lectureblog.models.Ad;
-import com.codeup.lectureblog.repositories.AdRepository;
+import com.codeup.lectureblog.ads.models.Ad;
+import com.codeup.lectureblog.ads.repositories.AdRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

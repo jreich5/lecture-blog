@@ -1,7 +1,7 @@
-package com.codeup.lectureblog.services;
+package com.codeup.lectureblog.mammals.services;
 
-import com.codeup.lectureblog.repositories.DogRepository;
-import com.codeup.lectureblog.repositories.PersonRepository;
+import com.codeup.lectureblog.mammals.repositories.DogRepository;
+import com.codeup.lectureblog.mammals.repositories.PersonRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

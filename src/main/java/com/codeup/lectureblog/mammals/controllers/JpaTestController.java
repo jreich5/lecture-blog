@@ -1,18 +1,16 @@
-package com.codeup.lectureblog.controllers;
+package com.codeup.lectureblog.mammals.controllers;
 
 
-import com.codeup.lectureblog.models.Dog;
-import com.codeup.lectureblog.models.Person;
-import com.codeup.lectureblog.repositories.DogRepository;
-import com.codeup.lectureblog.repositories.PersonRepository;
-import com.codeup.lectureblog.services.MammalStatsService;
+import com.codeup.lectureblog.mammals.models.Dog;
+import com.codeup.lectureblog.mammals.models.Person;
+import com.codeup.lectureblog.mammals.repositories.DogRepository;
+import com.codeup.lectureblog.mammals.repositories.PersonRepository;
+import com.codeup.lectureblog.mammals.services.MammalStatsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.List;
 
 @Controller
 public class JpaTestController {

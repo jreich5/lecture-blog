@@ -1,7 +1,7 @@
-package com.codeup.lectureblog.repositories;
+package com.codeup.lectureblog.ads.repositories;
 
 
-import com.codeup.lectureblog.models.Ad;
+import com.codeup.lectureblog.ads.models.Ad;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

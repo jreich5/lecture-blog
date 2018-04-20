@@ -1,10 +1,10 @@
-package com.codeup.lectureblog.models;
+package com.codeup.lectureblog.mammals.models;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="dogs")
-public class Dog {
+@Table(name="people")
+public class Person {
 
     @Id
     @GeneratedValue
@@ -20,15 +20,15 @@ public class Dog {
     @Column(name="reside_state", nullable=false, columnDefinition="char(2)")
     private String resideState;
 
-    public Dog() {
+    public Person() {
     }
 
-    public Dog(String name, String resideState) {
+    public Person(String name, String resideState) {
         this.name = name;
         this.resideState = resideState;
     }
 
-    public Dog(int age, String name, String resideState) {
+    public Person(int age, String name, String resideState) {
         this.age = age;
         this.name = name;
         this.resideState = resideState;

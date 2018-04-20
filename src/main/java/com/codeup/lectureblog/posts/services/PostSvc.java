@@ -1,13 +1,9 @@
-package com.codeup.lectureblog.services;
+package com.codeup.lectureblog.posts.services;
 
 
-import com.codeup.lectureblog.models.Post;
+import com.codeup.lectureblog.posts.models.Post;
 import com.codeup.lectureblog.repositories.PostRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class PostSvc {

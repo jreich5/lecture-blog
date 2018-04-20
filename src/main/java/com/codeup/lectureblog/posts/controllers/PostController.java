@@ -1,9 +1,8 @@
-package com.codeup.lectureblog.controllers;
+package com.codeup.lectureblog.posts.controllers;
 
 
-import com.codeup.lectureblog.models.Post;
-import com.codeup.lectureblog.repositories.PostRepository;
-import com.codeup.lectureblog.services.PostSvc;
+import com.codeup.lectureblog.posts.models.Post;
+import com.codeup.lectureblog.posts.services.PostSvc;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
