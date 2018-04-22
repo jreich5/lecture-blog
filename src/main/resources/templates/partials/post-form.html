@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    <form th:fragment="post-form(path)" th:action="${path}" method="POST" th:object="${post}">
+    <form th:fragment="post-form(path, btn)" th:action="${path}" method="POST" th:object="${post}">
 
         <div class="form-group">
             <label for="title">Post Title</label>
@@ -18,7 +18,7 @@
             <input id="body" class="form-control" placeholder="Enter post" type="text" th:field="*{body}" th:value="*{body}" />
         </div>
 
-        <button class="btn btn-large btn-success">Create Post</button>
+        <button class="btn btn-large btn-success" th:text="${btn}"></button>
 
     </form>
 
