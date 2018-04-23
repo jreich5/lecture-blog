@@ -8,7 +8,10 @@ import com.codeup.lectureblog.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 public class PostController {
@@ -40,11 +43,18 @@ public class PostController {
     }
 
     @PostMapping("/posts/create")
-    public String insert(@ModelAttribute Post post) {
-        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        post.setUser(loggedInUser);
-        postSvc.save(post);
-        return "redirect:/posts";
+    public String insert(@Valid Post post, Errors validation, Model model) {
+
+        if (validation.hasErrors()) {
+            model.addAttribute("errors", validation);
+            model.addAttribute("post", post);
+            return "/posts/create";
+        } else {
+            User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            post.setUser(loggedInUser);
+            postSvc.save(post);
+            return "redirect:/posts";
+        }
     }
 
     @GetMapping("/posts/{id}/edit")
