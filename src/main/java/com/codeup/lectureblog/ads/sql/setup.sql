@@ -11,6 +11,7 @@ DESCRIBE ads_categories;
 DESCRIBE categories_ads;
 
 SELECT * FROM ads;
+SELECT * FROM users;
 SELECT * FROM details;
 SELECT * FROM ads_categories;
 SELECT * FROM categories_ads;

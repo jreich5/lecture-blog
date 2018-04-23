@@ -9,30 +9,18 @@
 
     <h1>Create Ad</h1>
 
-    <!-- WITHOUT form model binding -->
-
-    <!--<form action="/ads/create" method="post">-->
-        <!--Title:-->
-        <!--<input name="title" />-->
-        <!--<br />-->
-        <!--Description:-->
-        <!--<input name="description" />-->
-        <!--<br />-->
-        <!--<input type="submit" />-->
-    <!--</form>-->
-
-
     <!-- WITH form model binding -->
-    <form action="/ads/create" method="post" th:object="${ad}">
+    <form th:action="@{/ads/create}" th:method="post" th:object="${ad}">
         Title:
+        <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" />
         <input th:field="*{title}" />
         <br />
         Description:
+        <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}" />
         <input th:field="*{description}" />
         <br />
         <input type="submit" />
     </form>
-
 
 </main>
 
