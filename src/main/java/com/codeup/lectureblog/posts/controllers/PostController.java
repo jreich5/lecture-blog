@@ -2,8 +2,10 @@ package com.codeup.lectureblog.posts.controllers;
 
 
 import com.codeup.lectureblog.posts.models.Post;
+import com.codeup.lectureblog.posts.models.User;
 import com.codeup.lectureblog.posts.services.PostSvc;
 import com.codeup.lectureblog.repositories.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +41,8 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String insert(@ModelAttribute Post post) {
-        post.setUser(userDao.findOne(1L));
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        post.setUser(loggedInUser);
         postSvc.save(post);
         return "redirect:/posts";
     }
@@ -51,8 +54,11 @@ public class PostController {
     }
 
     @PostMapping("/posts/{id}/edit")
-    public String update(@ModelAttribute Post post) {
-        postSvc.save(post);
+    public String update(@PathVariable long id, @ModelAttribute Post post) {
+        Post originalPost = postSvc.findOne(id);
+        originalPost.setTitle(post.getTitle());
+        originalPost.setBody(post.getBody());
+        postSvc.save(originalPost);
         return "redirect:/posts";
     }
 

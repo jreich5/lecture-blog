@@ -13,10 +13,10 @@ TRUNCATE posts;
 
 INSERT INTO users (username, email, password)
 VALUES
-  ('Bobby', 'bobby@email.com', 'getmein'),
-  ('Stacy', 'stacy@email.com', 'getmein'),
-  ('Fred', 'freddy@email.com', 'getmein'),
-  ('Kyle', 'kyle@email.com', 'getmein');
+  ('bobby', 'bobby@email.com', '$2a$10$/fWQrrGYJ6qfCiL2qkXwhOfEMPsGuws3XFpFbB6b7rYLWqJT6W4Nu'),
+  ('stacy', 'stacy@email.com', '$2a$10$/fWQrrGYJ6qfCiL2qkXwhOfEMPsGuws3XFpFbB6b7rYLWqJT6W4Nu'),
+  ('fred', 'freddy@email.com', '$2a$10$/fWQrrGYJ6qfCiL2qkXwhOfEMPsGuws3XFpFbB6b7rYLWqJT6W4Nu'),
+  ('kyle', 'kyle@email.com', '$2a$10$/fWQrrGYJ6qfCiL2qkXwhOfEMPsGuws3XFpFbB6b7rYLWqJT6W4Nu');
 
 
 INSERT INTO posts (title, body, user_id)
@@ -26,7 +26,9 @@ VALUES
 ('Post Title 3', 'This is a test post for post 3', 3),
 ('Post Title 4', 'This is a test post for post 4', 4);
     
-    
+
+
+SELECT * FROM users;
 
     
 
