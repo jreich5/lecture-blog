@@ -1,6 +1,7 @@
 package com.codeup.lectureblog.ads.models;
 
 import com.codeup.lectureblog.ads.models.Ad;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -18,6 +19,7 @@ public class AdCategory {
 
     // many Categories belong to many Ads
     @ManyToMany(mappedBy="categories")
+    @JsonBackReference
     private List<Ad> ads;
 
     public AdCategory() {}

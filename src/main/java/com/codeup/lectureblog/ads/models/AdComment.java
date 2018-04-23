@@ -1,6 +1,8 @@
 package com.codeup.lectureblog.ads.models;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -21,6 +23,7 @@ public class AdComment {
     // many Comments belong to one Ad
     @ManyToOne
     @JoinColumn(name="ad_id")
+    @JsonManagedReference
     private Ad ad;
 
     public AdComment() {

@@ -2,6 +2,7 @@ package com.codeup.lectureblog.ads.models;
 
 
 import com.codeup.lectureblog.ads.models.Ad;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
@@ -19,6 +20,7 @@ public class AdImage {
     // many Images belong to one Ad
     @ManyToOne
     @JoinColumn(name="ad_id")
+    @JsonManagedReference
     private Ad ad;
 
     public AdImage() {

@@ -3,6 +3,7 @@ package com.codeup.lectureblog.ads.models;
 
 import com.codeup.lectureblog.ads.models.Ad;
 import com.codeup.lectureblog.ads.models.AdComment;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -26,6 +27,7 @@ public class AdUser {
 
     // one User has many Ads
     @OneToMany(mappedBy="user")
+    @JsonBackReference
     private List<Ad> ads;
 
     // one User has

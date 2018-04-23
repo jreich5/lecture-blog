@@ -1,5 +1,7 @@
 package com.codeup.lectureblog.ads.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -32,6 +34,7 @@ public class Ad {
 
     // one Ad has many images
     @OneToMany(cascade=ALL, mappedBy="ad")
+    @JsonBackReference
     private List<AdImage> images;
 
     // many Ads belong have many categories
@@ -39,15 +42,18 @@ public class Ad {
     @JoinTable(name="ads_categories",
             joinColumns={@JoinColumn(name="ad_id")},
             inverseJoinColumns={@JoinColumn(name="category_id")})
+    @JsonManagedReference
     private List<AdCategory> categories;
 
     // one Ad has many comments
     @OneToMany(cascade=ALL, mappedBy="ad")
+    @JsonBackReference
     private List<AdComment> comments;
 
     // many ads belong to one User
     @ManyToOne
     @JoinColumn(name="user_id")
+    @JsonManagedReference
     private AdUser user;
 
     public Ad() {}
