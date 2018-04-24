@@ -4,7 +4,10 @@ import com.codeup.lectureblog.ads.models.Ad;
 import com.codeup.lectureblog.ads.repositories.AdRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 public class AdController {
@@ -55,10 +58,11 @@ public class AdController {
     }
 
     @PostMapping("/ads/create")
-    @ResponseBody
-    public String create(@ModelAttribute Ad ad) {
-        System.out.println(ad.getTitle());
-        System.out.println(ad.getDescription());
-        return "Ad saved!";
+    public String create(@Valid Ad ad, Errors errors, Model model) {
+        if (errors.hasErrors()) {
+            model.addAttribute(ad);
+            return "ads/create_ad";
+        }
+        return "ads/index";
     }
 }
