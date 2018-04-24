@@ -18,6 +18,7 @@ public class Ad {
     private long id;
 
     @Column(nullable = false, length = 100)
+    @Size(min=1, max=15, message="Ad title must be between 1 and 15 characters long.")
     private String title;
 
     @Column(nullable = false)

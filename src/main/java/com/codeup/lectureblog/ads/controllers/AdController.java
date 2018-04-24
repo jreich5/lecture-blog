@@ -31,7 +31,17 @@ public class AdController {
     }
 
     @PostMapping("/ads/create")
-    public String create(@ModelAttribute Ad ad) {
+    public String create(@Valid Ad ad, Errors errors, Model model) {
+
+        if (ad.getTitle().contains("zed")) {
+            errors.rejectValue("title", "zed-error", "Can't use 'zed'!!!");
+        }
+
+        if (errors.hasErrors()) {
+            model.addAttribute(ad);
+            return "ads/create_ad";
+        }
+
         adDao.save(ad);
         return "redirect:/ads";
     }
