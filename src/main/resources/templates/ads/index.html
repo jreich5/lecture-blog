@@ -11,14 +11,14 @@
 
     <div th:each="ad : ${ads}">
         <h3><span th:text="${ad.title}"></span></h3>
-        <div th:each="image : ${ad.images}">
-            <img width="50" th:src="${image.path}" alt="" />
-        </div>
+        <!--<div th:each="image : ${ad.images}">-->
+            <!--<img width="50" th:src="${image.path}" alt="" />-->
+        <!--</div>-->
         <p>Description = <span th:text="${ad.description}"></span></p>
-        <p>Brand = <span th:text="${ad.adDetails.brand}"></span></p>
-        <span th:each="category : ${ad.categories}">
-            <span th:text="${category.name}"></span>
-        </span>
+        <!--<p>Brand = <span th:text="${ad.adDetails.brand}"></span></p>-->
+        <!--<span th:each="category : ${ad.categories}">-->
+            <!--<span th:text="${category.name}"></span>-->
+        <!--</span>-->
     </div>
 
 </main>

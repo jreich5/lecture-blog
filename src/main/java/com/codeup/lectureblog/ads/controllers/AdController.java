@@ -12,30 +12,6 @@ import javax.validation.Valid;
 @Controller
 public class AdController {
 
-
-    // ======================= version WITHOUT form model binding
-//    @GetMapping("/ads/create")
-//    public String showCreateForm() {
-//        return "ads/create_ad";
-//    }
-//
-//
-//    @PostMapping("/ads/create")
-//    @ResponseBody
-//    public String create(
-//            @RequestParam(name = "title") String title,
-//            @RequestParam(name = "description") String description
-//    ) {
-//        Ad ad = new Ad();
-//        ad.setTitle(title);
-//        ad.setDescription(description);
-//        // save the ad...
-//        return "Ad saved!";
-//    }
-
-
-    // JPA test
-
     private final AdRepository adDao;
 
     public AdController(AdRepository adDao) {
@@ -48,9 +24,6 @@ public class AdController {
         return "ads/index";
     }
 
-
-    // ======================= version WITH form model binding
-
     @GetMapping("/ads/create")
     public String showCreateForm(Model model) {
         model.addAttribute("ad", new Ad());
@@ -59,10 +32,18 @@ public class AdController {
 
     @PostMapping("/ads/create")
     public String create(@Valid Ad ad, Errors errors, Model model) {
+
+        // custom validation
+        if (ad.getTitle().contains("zed")) {
+            errors.rejectValue("title", "zed-error", "Cannot include 'zed'!");
+        }
+
         if (errors.hasErrors()) {
             model.addAttribute(ad);
             return "ads/create_ad";
         }
-        return "ads/index";
+
+        adDao.save(ad);
+        return "redirect:/ads";
     }
 }
