@@ -31,18 +31,7 @@ public class AdController {
     }
 
     @PostMapping("/ads/create")
-    public String create(@Valid Ad ad, Errors errors, Model model) {
-
-        // custom validation
-        if (ad.getTitle().contains("zed")) {
-            errors.rejectValue("title", "zed-error", "Cannot include 'zed'!");
-        }
-
-        if (errors.hasErrors()) {
-            model.addAttribute(ad);
-            return "ads/create_ad";
-        }
-
+    public String create(@ModelAttribute Ad ad) {
         adDao.save(ad);
         return "redirect:/ads";
     }
