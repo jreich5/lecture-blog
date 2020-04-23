@@ -8,32 +8,24 @@
 
     <h1>This is the home page!</h1>
 
-    <!-- this will not work... -->
-    <!--<br>-->
-
-    <!-- ...but this will... -->
-    <br />
-
     <!-- context variables -->
     <h3>Well, howdy, <span th:text="${name}"></span>!</h3>
 
-    <!-- if and each tags -->
-    <!--<div th:if="${willSayHi}">-->
-        <!--<div th:each="name : ${names}">-->
-            <!--<p>Hi, <span th:text="${name}"></span>!</p>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div th:if="${!willSayHi}">-->
-        <!--<div th:each="name : ${names}">-->
-            <!--<p>Bye, <span th:text="${name}"></span>. :(</p>-->
-        <!--</div>-->
-    <!--</div>-->
+<!--     if and each tags -->
+<!--    <div th:if="${willSayHi}">-->
+<!--        <div th:each="name : ${names}">-->
+<!--            <p>Hi, <span th:text="${name}"></span>!</p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div th:if="${!willSayHi}">-->
+<!--        <div th:each="name : ${names}">-->
+<!--            <p>Bye, <span th:text="${name}"></span>. :(</p>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
     <!-- Partials -->
     <div th:replace="partials/master :: footer"></div>
-
-    <div th:include="partials/master :: footer"></div>
 
 </body>
 </html>
